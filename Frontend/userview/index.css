@@ -1,0 +1,78 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  flex-shrink: 1;
+}
+.btn1 {
+  background-color: blue;
+  border-radius: 6%;
+  color: white;
+  height: 61px;
+  width: 463px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+.logo {
+  background-color: rgba(3, 1, 59, 1);
+  height: 100%;
+  width: 100%;
+  margin: 0px 0px;
+}
+.logo1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  background: url('../adminlogo.png') center no-repeat;
+  margin-top: -1rem;
+  width: 52vw;
+  height: 100%;
+  flex-shrink: 1;
+}
+
+.logo2 {
+  width: 494px;
+  height: 219px;
+  /* margin-top: 200px;
+    margin-left: 95px; */
+  padding: 73px 163px 74px 162px;
+  background-color: white;
+  color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.write {
+  font-weight: 600;
+  font-size: 5rem;
+}
+.admin {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 1;
+}
+.admin h1 {
+  font-weight: 500;
+  font-size: 3rem;
+}
+input {
+  border-radius: 4%;
+  border: 3px solid black;
+  height: 4rem;
+  width: 100%;
+  margin: 4px;
+}
+form {
+  margin: 3rem;
+}

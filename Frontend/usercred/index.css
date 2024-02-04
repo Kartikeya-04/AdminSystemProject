@@ -1,0 +1,114 @@
+body {
+  z-index: 30;
+  background-color: #fff;
+}
+
+.main {
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  width: 110vw;
+  background-color: #fff;
+  position: relative;
+  flex-shrink: 1;
+}
+.over {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 40vw;
+  margin-left: 44.3rem;
+  z-index: -100;
+}
+.view {
+  border: blue 2px solid;
+  padding: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: blue;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 4px;
+  position: relative;
+}
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-shrink: 1;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  /* display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center; */
+}
+.second input {
+  width: 100%;
+  height: 3rem;
+  border: black solid 1px;
+  border-radius: 10px;
+  /* margin: 2rem; */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.picinput {
+  display: none;
+}
+img {
+  height: 16rem;
+  width: 25rem;
+}
+button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.upload {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: blue;
+  color: #fff;
+  border-radius: 7%;
+}
+.high {
+  z-index: 100;
+}
+.low {
+  z-index: -200;
+}
+.enableview {
+  cursor: pointer;
+}
+.over input {
+  border: 1px solid balck;
+  margin: 1.5rem;
+}
+.result {
+  color: red;
+}
+.cr {
+  color: green;
+}

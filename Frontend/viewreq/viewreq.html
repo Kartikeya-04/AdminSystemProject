@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>View Requests</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="main">
+          <div class="btn">
+            <button class="back">< Back</button>
+          </div>
+          <div class="grid">
+            <div class="one h"><h2>User Id</h2></div>
+            <div class="two h"><h2>Name</h2></div>
+            <div class="three h"><h2>Photo</h2></div>
+            <div class="four h"><h2>Action</h2></div>
+            <div class="i1"></div>
+            <div class="n1"></div>
+            <div class="p1"></div>
+            <div class="a1">
+              <button class="done1 done">Done</button>
+              <button class="del1">Delete</button>
+            </div>
+            <div class="i2"></div>
+            <div class="n2"></div>
+            <div class="p2"></div>
+            <div class="a2">
+              <button class="done2 done">Done</button>
+              <button class="del2">Delete</button>
+            </div>
+            <div class="i3"></div>
+            <div class="n3"></div>
+            <div class="p3"></div>
+            <div class="a3">
+              <button class="done3 done">Done</button>
+              <button class="del3">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const button1 = document.querySelector('.done1');
+      const button2 = document.querySelector('.done2');
+      const button3 = document.querySelector('.done3');
+
+      // document.querySelectorAll('.done').forEach((button) => {
+
+      button1.addEventListener('click', () => {
+        const socket = io();
+
+        var sender = { name: '', message: '' };
+
+        sender = {
+          name: document.querySelector('.n1').innerHTML,
+          message: 'Accepted By Admin',
+        };
+        button1.classList.add('doneResult');
+        socket.emit('result', sender);
+        alert('User is Approved!');
+      });
+      button2.addEventListener('click', () => {
+        const socket = io();
+
+        var sender = { name: '', message: '' };
+
+        sender = {
+          name: document.querySelector('.n2').innerHTML,
+          message: 'Accepted By Admin',
+        };
+        button2.classList.add('doneResult');
+        socket.emit('result', sender);
+        alert('User is Approved!');
+      });
+      button3.addEventListener('click', () => {
+        const socket = io();
+
+        var sender = { name: '', message: '' };
+
+        sender = {
+          name: document.querySelector('.n3').innerHTML,
+          message: 'Accepted By Admin',
+        };
+        button3.classList.add('doneResult');
+        socket.emit('result', sender);
+        alert('User is Approved!');
+      });
+      // });
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>

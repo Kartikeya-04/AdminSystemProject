@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/cropperjs/dist/cropper.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>USER INTERFACE</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="main">
+          <div class="first">
+            <div>
+              <button class="view" disabled>VIEW</button>
+            </div>
+          </div>
+          <div class="second">
+            <div>
+              <form name="Usercred" class="form">
+                <div><label for="name">Name</label></div>
+                <div>
+                  <input
+                    type="text"
+                    name="username"
+                    id="name"
+                    placeholder="Enter the Name"
+                    required
+                  />
+                </div>
+                <div><label for="pic">Photo</label></div>
+                <div>
+                  <img src="../images/background.png" alt="bg" class="bg" />
+                </div>
+                <div class="picinput">
+                  <input
+                    type="file"
+                    name="profilepic"
+                    id="pic"
+                    accept="image/jpeg,image/png,image/jpg"
+                  />
+                </div>
+                <div>
+                  <button class="upload" type="submit">
+                    <div>Upload</div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="over">
+            <div>
+              <label class="sidename">Name</label>
+            </div>
+            <div>
+              <input type="text" id="myInput" readonly />
+            </div>
+            <div>
+              <label>Photo</label>
+            </div>
+            <div>
+              <img src="" class="sidepic" />
+            </div>
+            <div class="result">
+              <h2>NOT ACCEPTED BY ADMIN</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../node_modules/cropperjs/dist/cropper.min.js"></script>
+    <script
+      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io();
+
+      socket.on('connect', () => {
+        console.log('Socket connected');
+        socket.on('checkresult', (data) => {
+          var r = document.querySelector('#myInput').value;
+          console.log(` my name is ${r}`);
+          console.log(`from other client my name is ${data.name}`);
+
+          if (data.name === r) {
+            console.log('Received checkresult event:', data);
+            document.querySelector('.result').style.color = 'green';
+            document.querySelector('.result').textContent = data.message;
+          } else {
+            console.log('you are not the selected user!!!!');
+          }
+        });
+      });
+
+      socket.on('disconnect', () => {
+        console.log('Socket disconnected');
+      });
+    </script>
+
+    <script src="index1.js">
+      //     const socket=io();
+      // socket.on('checkresult',(data)=>{
+      //   document.querySelector('.result').innerHTML=data;
+      // })
+    </script>
+  </body>
+</html>
